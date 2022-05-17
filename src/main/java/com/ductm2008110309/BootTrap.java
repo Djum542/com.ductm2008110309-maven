@@ -4,10 +4,11 @@ import java.util.Scanner;
 import java.util.logging.Handler;
 
 public class BootTrap {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Scanner scanner = new Scanner(System.in);
         Account account = new Account();
         UITerminal uiTerminal = new UITerminal(account);
+
         System.out.println("Welcome to the cinema Reservation System(CRS)!\n (To exit type exitsts)");
         while (true) {
             String displayOpition;
@@ -24,6 +25,10 @@ public class BootTrap {
             }
         }
 
+    }
+
+    private static String handleCommand(String rep) {
+        return null;
     }
 
 }

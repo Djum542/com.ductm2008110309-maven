@@ -3,6 +3,7 @@ package com.ductm2008110309;
 import java.util.Scanner;
 
 public class UITerminal {
+    private static final Object LI = null;
     private Account account;
     private String promt;// thông báo
     private String command;
@@ -10,11 +11,11 @@ public class UITerminal {
 
     public void displayOpition() {
         System.out.println("---------------Menu-------------");
-if (!account.checkLoggedin()) {
-this.promt =     "Enter on ò the commant in the account\n" + "[CA]Create account\n"+"[li] loggnin"
-} else {
-    this.promt = "[Login is as #]"+account.get
-}
+        if (!account.getLoggedin()) {
+            this.promt = "Enter on ò the commant in the account" + "[CA]Create account\n" + "[li] loggnin";
+        } else {
+            this.promt = "[Login is as #]" + account.getName();
+        }
     }
 
     public UITerminal(Account account) {
@@ -36,12 +37,14 @@ this.promt =     "Enter on ò the commant in the account\n" + "[CA]Create accoun
             return " Unkwon command";
         }
 public void handlerInput() {
+    
+ 
     if (this.command.equals("CA")) {
         Account account = createAccountInput();
 
-    } else {
-        
     }
+    
+         
     public void createAccountInput() {
         System.out.println("Username");
         String username = scanner.nextLine();
@@ -57,6 +60,17 @@ public void handlerInput() {
         return null;
     }
 
-    private void handlerInput() {
+    static void handlerInput() {
+    }
+
+    public char[] getPromt() {
+        return null;
+    }
+
+    public void Login(String name, String passwoed) {
+        System.out.println("username");
+        String username = scanner.nextLine();
+        System.out.println("password");
+        String password = scanner.nextLine();
     }
 }
