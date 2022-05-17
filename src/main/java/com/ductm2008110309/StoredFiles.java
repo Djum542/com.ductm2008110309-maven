@@ -49,6 +49,16 @@ public class StoredFiles {
         }
     }
 
+    public void Read() {
+        Gson gson = new Gson();
+        try (FileReader fileReader = new FileReader(strorredString)) {
+            gson.toJson(Memory);
+        } catch (Exception e) {
+            // TODO: handle exception
+            e.fillInStackTrace();
+        }
+    }
+
     public int search(String key, String value) {
         String result = null;
         for (int i = 0; i < Memory.size(); i++)
@@ -58,6 +68,8 @@ public class StoredFiles {
         if (value.equals(result)) {
             return i;
         }
+
         return -1;
     }
+
 }
