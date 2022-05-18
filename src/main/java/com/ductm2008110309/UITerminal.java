@@ -36,16 +36,17 @@ public class UITerminal {
         } else {
             return " Unkwon command";
         }
-public void handlerInput() {
+public Void handlerInput() {
     
  
     if (this.command.equals("CA")) {
         Account account = createAccountInput();
-
+    }
+Account.createAccount(account.getName(), account.getPassword(), account.getEmail());
     }
     
          
-    public void createAccountInput() {
+    public Account createAccountInput() {
         System.out.println("Username");
         String username = scanner.nextLine();
         System.out.println("password");
@@ -53,7 +54,7 @@ public void handlerInput() {
         System.out.println("email");
         String email = scanner.nextLine();
     }
-}
+
     }
 
     private Account createAccountInput() {

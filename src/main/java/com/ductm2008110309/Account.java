@@ -75,6 +75,14 @@ public class Account {
         }
     }
 
+    public void Logout() {
+        this.Loggedin = false;
+        this.name = null;
+        this.Password = null;
+        this.Email = null;
+
+    }
+
     public static List<Object> accountValid(String username, String email) {
         List<Object> list = new ArrayList<>();
         int index = 0;

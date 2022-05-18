@@ -20,7 +20,6 @@ public class BootTrap {
             String cmd = handleCommand(rep);
             if (cmd != null && !cmd.equals("Unkown command")) {
                 System.out.println(cmd);
-                scanner.nextLine();
                 UITerminal.handlerInput();
             }
         }
