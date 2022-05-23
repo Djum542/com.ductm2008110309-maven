@@ -75,6 +75,52 @@ public class Account {
         }
     }
 
+    public void Login(String name, String pasword) {
+        // to do
+        // un---> search(un, username)
+        // Found -->index
+        // ps--> check pass by index
+        // get email
+        // logged
+        // Object account (empty) chưa
+        // value un, ps, email
+        jsonArray tempMemory = account.getALL();
+        int index = -1;
+        index = Account.search("un", name);
+        // 1. already login
+        if (name.equals(this.name)) {
+            System.out.println("[already login ] you already login");
+            // 2. dang nhập nhiều tai khoan => name nhap vào != account.name
+
+        } else if (this.name != null && this.name.equals(name)) {
+            System.out.println("[invalid multicle login] you need to logout first to try another login");
+        } else if (index != -1) {
+            JsonObject jsonObject = tempMemory.get(index).getAsJsonObject();
+            String passwordAcc = jsonObject.get("PS").getAsString();
+            if (passwordAcc = password) {
+                String email = tempMemory.get("email").getAsString();
+                String emaiL = jsonObject.get("email").getAsString();
+                System.out.println("[Logged in] you was logged in");
+
+            } else {
+                System.out.println("[waring pasword] the pasword you entered is in ter ract tich");
+            }
+        } else {
+            System.out.println("[don't account] you don't account");
+        }
+        // 3. chua đăng ký
+        // 4. dang nhap bình thường
+
+    }
+
+    private void setAccount(String name, String password, String email) {
+        this.name = name;
+        this.Password = password;
+        this.Email = email;
+        this.Loggedin = true;
+
+    }
+
     public void Logout() {
         this.Loggedin = false;
         this.name = null;

@@ -47,6 +47,8 @@ public class StoredFiles {
             // TODO: handle exception
             e.printStackTrace();
         }
+        getALL();
+        return memory;
     }
 
     public void Read() {
