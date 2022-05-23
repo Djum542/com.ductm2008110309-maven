@@ -1,56 +1,47 @@
 package main.java.com.ductm2008110309;
 
-public class CreateAccountUI {
-    private Createccount createccount;
-    private Action command;
+import java.util.Scanner;
 
-    public Createccount(Createccount createccount, Action command) {
-        this.createccount = createccount;
-        this.command = null;
+import com.ductm2008110309.Account;
+
+public class CreateccountUI {
+    private Account account;
+
+public CreateAccountUI(){
+        this.account = account;
     }
 
-    public static void createAccount(String username, Integer password, String email) {
+    public static Account createAccountInputs() {
+        System.out.println("USERNAME: ");
+        String username = scanner.nextLine();
+        System.out.print("PASSWORD: ");
+        Integer password = scanner.nextInt();
+        System.out.print("EMAIL: ");
+        String email = scanner.nextLine();
+        return new Account(username, password, email);
+    }
 
-        // username/email check;
-        // ...
-        List<Object> list = accountValid(username, email);
-        if (!(boolean) list.get(0)) {// false
-            System.out.println(list.get(1));
+    public String handleCommands(String rep) {
+        String cmd = rep.toUpperCase();
+        this.command = cmd;
+
+        if (this.command.equals("CA")) {
+            return "Enter an username, a password, a email";
         } else {
-            // theem c
-            // sdl => StoredFiles
-            // un: mssen
-            // ps: 123
-            // mail:mssen@gmail.com
-            Accounts.getAccounts.update(username, password, email);
-            accounts.write();
+            return "unknown command.";
         }
 
     }
 
-    public static List<Object> accountValid(String username, String email) {
-        List<Object> list = new ArrayList<>();
 
-        int index = 0;
-        index = accounts.search("un", username);
-        if (index != -1) {
-            list.add(false);
-            list.add("[USERNAME EXISTS] An user with that username already exists.");
-            return list;
-        }
-        // check email
-        index = accounts.search("email", email);
-        if (index != -1) {
-            list.add(false);
-            list.add("[EMAIL EXISTS] An email with that mail already exists.");
-            return list;
+    public void handlerInput() {
+
+        if (this.command.equals("CA")) {
+            Account account = createAccountInputs();
+
+            this.createAccount(account.getUsername(), account.getPassword(), account.getEmail());
         }
 
-        if (index == -1) {
-            list.add(true);
-            list.add("[ACCOUNT CREATED] An account has been created.");
-        }
-
-        return list;
     }
+
 }

@@ -1,12 +1,31 @@
 package main.java.com.ductm2008110309;
 
-public class LoginUI {
-    private LogginAccount LogginAccount;
-    private String command;
+public class CreateAccountUI {
+    private Createccount createccount;
+    private Action command;
 
-    public LoginUI(main.java.com.ductm2008110309.LogginAccount logginAccount, String command) {
-        LogginAccount = logginAccount;
+    public Createccount(Createccount createccount, Action command) {
+        this.createccount = createccount;
         this.command = null;
+    }
+
+    public static void createAccount(String username, Integer password, String email) {
+
+        // username/email check;
+        // ...
+        List<Object> list = accountValid(username, email);
+        if (!(boolean) list.get(0)) {// false
+            System.out.println(list.get(1));
+        } else {
+            // theem c
+            // sdl => StoredFiles
+            // un: mssen
+            // ps: 123
+            // mail:mssen@gmail.com
+            Accounts.getAccounts.update(username, password, email);
+            accounts.write();
+        }
+
     }
 
     public static List<Object> accountValid(String username, String email) {
@@ -35,25 +54,6 @@ public class LoginUI {
         return list;
     }
 
-    public void handleInputs() {
-
-        if (this.command.equals("LI")) {
-            Account account = LoginUI();
-
-            this.LoginUI(account.getUsername(), account.getPassword());
-        }
-
-    }
-    public String handleCommands(String rep) {
-        String cmd = rep.toUpperCase();
-        this.command = Actions.valueOf(cmd);
-        if (this.command.equals(Actions.LO)) {
-            return "Logging out ...";
-        } else if (this.command.equals(Actions.LI)) {
-            return "Enter a username, a password";
-        } else {
-            return "Unkown command.";
-        }
     public Account getAccount() {
         return account;
     }
